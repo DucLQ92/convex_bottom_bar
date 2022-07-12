@@ -561,7 +561,7 @@ class ConvexAppBarState extends State<ConvexAppBar>
       alignment: Alignment.bottomCenter,
       children: <Widget>[
         ClipRRect(
-          borderRadius: widget.borderRadiusBackground,
+          borderRadius: widget.borderRadiusBackground ?? BorderRadius.circular(0.0),
           child: Container(
             height: height,
             width: width,
