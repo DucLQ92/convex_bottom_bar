@@ -211,7 +211,7 @@ class ConvexAppBar extends StatefulWidget {
     TabStyle? style,
     Curve? curve,
     ChipBuilder? chipBuilder,
-    BorderRadiusGeometry? borderRadiusBackground,
+    BorderRadius? borderRadiusBackground,
     double? additionalBottomPadding,
   }) : this.builder(
           key: key,
@@ -328,7 +328,7 @@ class ConvexAppBar extends StatefulWidget {
     double? cornerRadius,
     TabStyle? style,
     Curve? curve,
-    BorderRadiusGeometry? borderRadiusBackground,
+    BorderRadius? borderRadiusBackground,
     double? additionalBottomPadding,
   }) {
     DefaultChipBuilder? chipBuilder;
