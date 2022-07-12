@@ -145,7 +145,7 @@ class ConvexAppBar extends StatefulWidget {
   final Curve curve;
   
   /// 
-  final BorderRadiusGeometry? borderRadiusBackground;
+  final BorderRadius? borderRadiusBackground;
   
   /// 
   final double? additionalBottomPadding;
