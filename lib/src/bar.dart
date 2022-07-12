@@ -211,6 +211,8 @@ class ConvexAppBar extends StatefulWidget {
     TabStyle? style,
     Curve? curve,
     ChipBuilder? chipBuilder,
+    BorderRadiusGeometry? borderRadiusBackground,
+    double? additionalBottomPadding,
   }) : this.builder(
           key: key,
           itemBuilder: supportedStyle(
@@ -236,6 +238,8 @@ class ConvexAppBar extends StatefulWidget {
           cornerRadius: cornerRadius,
           curve: curve ?? Curves.easeInOut,
           chipBuilder: chipBuilder,
+          borderRadiusBackground: borderRadiusBackground,
+          additionalBottomPadding: additionalBottomPadding,
         );
 
   /// Define a custom tab style by implement a [DelegateBuilder].
@@ -271,6 +275,8 @@ class ConvexAppBar extends StatefulWidget {
     this.cornerRadius,
     this.curve = Curves.easeInOut,
     this.chipBuilder,
+    this.borderRadiusBackground,
+    this.additionalBottomPadding,
   })  : assert(top == null || top <= 0, 'top should be negative'),
         assert(initialActiveIndex == null || initialActiveIndex < count,
             'initial index should < $count'),
@@ -322,6 +328,8 @@ class ConvexAppBar extends StatefulWidget {
     double? cornerRadius,
     TabStyle? style,
     Curve? curve,
+    BorderRadiusGeometry? borderRadiusBackground,
+    double? additionalBottomPadding,
   }) {
     DefaultChipBuilder? chipBuilder;
     if (badge.isNotEmpty) {
@@ -354,6 +362,8 @@ class ConvexAppBar extends StatefulWidget {
       style: style,
       curve: curve,
       chipBuilder: chipBuilder,
+      borderRadiusBackground: borderRadiusBackground,
+      additionalBottomPadding: additionalBottomPadding,
     );
   }
 
