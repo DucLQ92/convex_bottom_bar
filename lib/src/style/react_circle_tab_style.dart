@@ -30,6 +30,12 @@ class ReactCircleTabStyle extends InnerBuilder {
   /// Curve for tab transition.
   final Curve curve;
 
+  ///
+  final Border? border;
+  
+  ///
+  final Gradient? gradient;
+
   /// Create style builder.
   ReactCircleTabStyle({
     required List<TabItem> items,
@@ -37,6 +43,8 @@ class ReactCircleTabStyle extends InnerBuilder {
     required Color color,
     required this.backgroundColor,
     required this.curve,
+    this.border,
+    this.gradient,
   }) : super(items: items, activeColor: activeColor, color: color);
 
   @override
@@ -57,6 +65,8 @@ class ReactCircleTabStyle extends InnerBuilder {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: active ? activeColor : color,
+            border: border,
+            gradient: gradient,
           ),
           child: BlendImageIcon(
             active ? item.activeIcon ?? item.icon : item.icon,
