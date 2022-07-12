@@ -143,6 +143,12 @@ class ConvexAppBar extends StatefulWidget {
 
   /// The curve to use in the forward direction. Only works when tab style is not fixed.
   final Curve curve;
+  
+  /// 
+  final BorderRadiusGeometry? borderRadiusBackground;
+  
+  /// 
+  final double? additionalBottomPadding;
 
   /// Construct a new appbar with internal style.
   ///
@@ -523,9 +529,7 @@ class ConvexAppBarState extends State<ConvexAppBar>
 
   @override
   Widget build(BuildContext context) {
-    // take care of iPhoneX' safe area at bottom edge
-    final additionalBottomPadding =
-        math.max(MediaQuery.of(context).padding.bottom, 0.0);
+    final additionalBottomPadding = widget.additionalBottomPadding ?? 0.0;
     final convexIndex = isFixed() ? (widget.count ~/ 2) : _currentIndex;
     final active = isFixed() ? convexIndex == _currentIndex : true;
 
@@ -546,20 +550,23 @@ class ConvexAppBarState extends State<ConvexAppBar>
       clipBehavior: Clip.none,
       alignment: Alignment.bottomCenter,
       children: <Widget>[
-        Container(
-          height: height,
-          width: width,
-          child: CustomPaint(
-            painter: ConvexPainter(
-              top: widget.top ?? CURVE_TOP,
-              width: widget.curveSize ?? CONVEX_SIZE,
-              height: widget.curveSize ?? CONVEX_SIZE,
-              color: widget.backgroundColor ?? Colors.blue,
-              gradient: widget.gradient,
-              sigma: widget.elevation ?? ELEVATION,
-              leftPercent: percent,
-              textDirection: textDirection,
-              cornerRadius: widget.cornerRadius,
+        ClipRRect(
+          borderRadius: widget.borderRadiusBackground,
+          child: Container(
+            height: height,
+            width: width,
+            child: CustomPaint(
+              painter: ConvexPainter(
+                top: widget.top ?? CURVE_TOP,
+                width: widget.curveSize ?? CONVEX_SIZE,
+                height: widget.curveSize ?? CONVEX_SIZE,
+                color: widget.backgroundColor ?? Colors.blue,
+                gradient: widget.gradient,
+                sigma: widget.elevation ?? ELEVATION,
+                leftPercent: percent,
+                textDirection: textDirection,
+                cornerRadius: widget.cornerRadius,
+              ),
             ),
           ),
         ),
