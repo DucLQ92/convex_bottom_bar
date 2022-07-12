@@ -213,6 +213,8 @@ class ConvexAppBar extends StatefulWidget {
     ChipBuilder? chipBuilder,
     BorderRadius? borderRadiusBackground,
     double? additionalBottomPadding,
+    Border? borderItem,
+    Gradient? gradientItem,
   }) : this.builder(
           key: key,
           itemBuilder: supportedStyle(
@@ -222,6 +224,8 @@ class ConvexAppBar extends StatefulWidget {
             activeColor: activeColor ?? Colors.white,
             backgroundColor: backgroundColor ?? Colors.blue,
             curve: curve ?? Curves.easeInOut,
+            border: borderItem,
+            gradient: gradientItem,
           ),
           onTap: onTap,
           onTapNotify: onTabNotify,
@@ -561,7 +565,7 @@ class ConvexAppBarState extends State<ConvexAppBar>
       alignment: Alignment.bottomCenter,
       children: <Widget>[
         ClipRRect(
-          borderRadius: widget.borderRadiusBackground ?? BorderRadius.circular(0.0),
+          borderRadius: widget.borderRadiusBackground,
           child: Container(
             height: height,
             width: width,
