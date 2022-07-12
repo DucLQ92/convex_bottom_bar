@@ -35,6 +35,8 @@ DelegateBuilder supportedStyle(
   required Color activeColor,
   required Color backgroundColor,
   required Curve curve,
+  Border? border,
+  Gradient? gradient,
 }) {
   assert(items.isNotEmpty, 'items should not be empty');
   assert(
@@ -76,6 +78,8 @@ DelegateBuilder supportedStyle(
         activeColor: activeColor,
         backgroundColor: backgroundColor,
         curve: curve,
+        border: border,
+        gradient: gradient,
       );
       break;
     case TabStyle.textIn:
